@@ -11,20 +11,20 @@ if (process.env.IS_OFFLINE) dbase = process.env.LMONGO_DB;
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      load: [mongoConfig],
-    }),
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (config:ConfigService) => ({
-        uri: config.get<string>('mongo.uri'),
-        directConnection: true,
-        dbName: dbase,
-        connectTimeoutMS: 5000,        
-      }),
-    }),
+    // ConfigModule.forRoot({
+    //   isGlobal: true,
+    //   load: [mongoConfig],
+    // }),
+    // MongooseModule.forRootAsync({
+    //   imports: [ConfigModule],
+    //   inject: [ConfigService],
+    //   useFactory: async (config:ConfigService) => ({
+    //     uri: config.get<string>('mongo.uri'),
+    //     directConnection: true,
+    //     dbName: dbase,
+    //     connectTimeoutMS: 5000,        
+    //   }),
+    // }),
     ContentInspectionModule,
   ],
   controllers: [AppController],
