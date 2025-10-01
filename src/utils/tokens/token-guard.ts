@@ -27,7 +27,7 @@ export class TokenGuard implements CanActivate {
             //throw new UnauthorizedException();
             throw TokenErrorException(ErrCode.TOKEN_ERROR);
         }
-
+        //console.log('apikey:', process.env.API_KEY,', token:', token);
         // let isLogin:any;
         // try {
         //     isLogin = await this.checkLogin(token);
@@ -42,12 +42,15 @@ export class TokenGuard implements CanActivate {
         //     // throw new UnauthorizedException();
         //     throw TokenErrorException(ErrCode.BEEN_LOGOUT);
         // }
+        const apikey = request.header('sitetype') === 'manager' ? process.env.API_KEY_MANAGER : process.env.API_KEY_MEMBER;
+        //console.log('apikey:', apikey);
         try {
             // console.log('check3', process.env.API_KEY);
             const payload = this.jwt.verify(
                 token,
                 {
-                    secret: process.env.API_KEY,
+                    //secret: process.env.API_KEY,
+                    secret: apikey,
                 }
             )
             // console.log('TokenGuard payload:', payload);
@@ -74,7 +77,7 @@ export class TokenGuard implements CanActivate {
         if (token && (token.startsWith('Bearer ') || token.startsWith('bearer '))) {
             return token.slice(7); // Remove "Bearer " prefix
         }
-        // console.log('extractTokenFromHeader:', token);
+        //console.log('extractTokenFromHeader:', token);
         return token ? token : undefined;
     }
 //    async checkLogin(token:string) {

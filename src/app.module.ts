@@ -11,7 +11,7 @@ if (process.env.IS_OFFLINE) dbase = process.env.LMONGO_DB;
 
 @Module({
   imports: [
-    // ConfigModule.forRoot({
+    ConfigModule.forRoot({
     //   isGlobal: true,
     //   load: [mongoConfig],
     // }),
@@ -24,7 +24,7 @@ if (process.env.IS_OFFLINE) dbase = process.env.LMONGO_DB;
     //     dbName: dbase,
     //     connectTimeoutMS: 5000,        
     //   }),
-    // }),
+    }),
     ContentInspectionModule,
   ],
   controllers: [AppController],

@@ -28,6 +28,7 @@ export function confirmFileName(file:Express.Multer.File) {
 @Injectable()
 export class FileNamePipe implements PipeTransform {
     async transform(value: any, metadata: ArgumentMetadata) {
+        console.log('FileNamePipe value:', value);
         const tmp:Express.Multer.File[] = [];
         if (isArray(value)) {
             const files = value as Express.Multer.File[];
