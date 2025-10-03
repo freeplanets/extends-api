@@ -10,8 +10,8 @@ import { FilesUploadDto } from '../dto/common/files-upload.dto';
 
 @Controller('content-inspection')
 @ApiTags('content-inspection')
-@UseGuards(TokenGuard)
-@ApiBearerAuth()
+//@UseGuards(TokenGuard)
+//@ApiBearerAuth()
 export class ContentInspectionController {
     //constructor(private readonly ciSerivce:ContentInspectionService) {}
 
