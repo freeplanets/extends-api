@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import mongoConfig from './config/mongo.config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ContentInspectionModule } from './content-inspection/content-inspection.module';
+import { ExpoMessageModule } from './expo-message/expo-message.module';
 
 let dbase = process.env.MONGO_DB;
 if (process.env.IS_OFFLINE) dbase = process.env.LMONGO_DB;
@@ -26,6 +27,7 @@ if (process.env.IS_OFFLINE) dbase = process.env.LMONGO_DB;
     //   }),
     }),
     ContentInspectionModule,
+    ExpoMessageModule,
   ],
   controllers: [AppController],
   providers: [AppService],

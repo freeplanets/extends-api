@@ -47,6 +47,7 @@ export enum ErrCode {
 	BAD_WORD_DETECTED_IN_FILE = 'BAD_WORD_DETECTED_IN_FILE',
 	BAD_WORD_DETECTED_IN_PIC = 'BAD_WORD_DETECTED_IN_PIC',
 	BAD_IMAGE_DETECTED = 'BAD_IMAGE_DETECTED',
+	PUSH_TOKEN_ERROR = 'PUSH_TOKEN_ERROR',
 }
 export enum ErrMsg {
 	MISS_PARAMETER = '參數不足',
@@ -95,6 +96,7 @@ export enum ErrMsg {
 	BAD_WORD_DETECTED_IN_FILE = '你上傳的檔案檢查到不雅文字',
 	BAD_WORD_DETECTED_IN_PIC = '你上傳的圖片中檢查到不雅文字',
 	BAD_IMAGE_DETECTED = '你上傳的圖片可能有不雅內容',
+	PUSH_TOKEN_ERROR = 'EXPO TOKEN 有誤！',
 }
 export const getErrorMessage = (code: ErrCode): string => {
 	const errKey = Object.keys(ErrCode).find((key) => ErrCode[key as keyof typeof ErrCode] === code);
